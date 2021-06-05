@@ -22,14 +22,14 @@ public class Funcionario extends Pessoa {
 	private BigDecimal descontoIR;
 	@OneToMany
 	@JoinColumn(name = "id_dependente")
-	private List<Dependentes> dependentes;
+	private List<Dependente> dependentes;
 
 	public Funcionario() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Funcionario(Long id, BigDecimal salarioBruto, BigDecimal descontoInss, BigDecimal descontoIR,
-			List<Dependentes> dependentes) {
+			List<Dependente> dependentes) {
 		super();
 		this.id = id;
 		this.salarioBruto = salarioBruto;
@@ -70,11 +70,11 @@ public class Funcionario extends Pessoa {
 		this.descontoIR = descontoIR;
 	}
 
-	public List<Dependentes> getDependentes() {
+	public List<Dependente> getDependentes() {
 		return dependentes;
 	}
 
-	public void setDependentes(List<Dependentes> dependentes) {
+	public void setDependentes(List<Dependente> dependentes) {
 		this.dependentes = dependentes;
 	}
 

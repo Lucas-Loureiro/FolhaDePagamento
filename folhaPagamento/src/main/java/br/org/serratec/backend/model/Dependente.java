@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Dependentes extends Pessoa{
+public class Dependente extends Pessoa{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_dependente")
@@ -23,11 +23,11 @@ public class Dependentes extends Pessoa{
 	@JoinColumn(name = "id_funcionario")
 	private Funcionario funcionario;
 	
-	public Dependentes() {
+	public Dependente() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Dependentes(Long id, Parentesco parentesco) {
+	public Dependente(Long id, Parentesco parentesco) {
 		super();
 		this.id = id;
 		this.parentesco = parentesco;
@@ -66,7 +66,7 @@ public class Dependentes extends Pessoa{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Dependentes other = (Dependentes) obj;
+		Dependente other = (Dependente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
