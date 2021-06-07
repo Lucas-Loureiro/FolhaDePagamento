@@ -1,8 +1,8 @@
 package br.org.serratec.backend.model;
 
-import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,11 +17,11 @@ public class Funcionario extends Pessoa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_funcionario")
 	private Long id;
-	private BigDecimal salarioBruto;
-	private BigDecimal descontoInss;
-	private BigDecimal descontoIR;
-	private BigDecimal salarioLiquido;
-	@OneToMany
+	private Double salarioBruto;
+	private Double descontoInss;
+	private Double descontoIR;
+	private Double salarioLiquido;
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_dependente")
 	private List<Dependente> dependentes;
 
@@ -30,8 +30,8 @@ public class Funcionario extends Pessoa {
 	}
 
 
-	public Funcionario(Long id, BigDecimal salarioBruto, BigDecimal descontoInss, BigDecimal descontoIR,
-			BigDecimal salarioLiquido, List<Dependente> dependentes) {
+	public Funcionario(Long id, Double salarioBruto, Double descontoInss, Double descontoIR,
+			Double salarioLiquido, List<Dependente> dependentes) {
 		super();
 		this.id = id;
 		this.salarioBruto = salarioBruto;
@@ -51,27 +51,27 @@ public class Funcionario extends Pessoa {
 		this.id = id;
 	}
 
-	public BigDecimal getSalarioBruto() {
+	public Double getSalarioBruto() {
 		return salarioBruto;
 	}
 
-	public void setSalarioBruto(BigDecimal salarioBruto) {
+	public void setSalarioBruto(Double salarioBruto) {
 		this.salarioBruto = salarioBruto;
 	}
 
-	public BigDecimal getDescontoInss() {
+	public Double getDescontoInss() {
 		return descontoInss;
 	}
 
-	public void setDescontoInss(BigDecimal descontoInss) {
+	public void setDescontoInss(Double descontoInss) {
 		this.descontoInss = descontoInss;
 	}
 
-	public BigDecimal getDescontoIR() {
+	public Double getDescontoIR() {
 		return descontoIR;
 	}
 
-	public void setDescontoIR(BigDecimal descontoIR) {
+	public void setDescontoIR(Double descontoIR) {
 		this.descontoIR = descontoIR;
 	}
 
@@ -85,12 +85,12 @@ public class Funcionario extends Pessoa {
 	
 	
 
-	public BigDecimal getSalarioLiquido() {
+	public Double getSalarioLiquido() {
 		return salarioLiquido;
 	}
 
 
-	public void setSalarioLiquido(BigDecimal salarioLiquido) {
+	public void setSalarioLiquido(Double salarioLiquido) {
 		this.salarioLiquido = salarioLiquido;
 	}
 

@@ -4,12 +4,14 @@ import java.time.LocalDate;
 import java.time.Period;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.org.serratec.backend.exception.CpfException;
 import br.org.serratec.backend.exception.DataException;
 import br.org.serratec.backend.model.Dependente;
 import br.org.serratec.backend.repository.DependenteRepository;
 
+@Service
 public class DependenteService {
 	@Autowired
 	private DependenteRepository dependenteRepository;
