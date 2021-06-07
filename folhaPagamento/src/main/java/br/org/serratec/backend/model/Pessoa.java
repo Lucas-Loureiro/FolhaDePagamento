@@ -1,21 +1,19 @@
 package br.org.serratec.backend.model;
 
+
+
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
 
 
 @MappedSuperclass
-public abstract class Pessoa {
+public class Pessoa {
 
 	@NotBlank(message = "Nome não pode estar em branco")
 	protected String nome;
@@ -23,7 +21,6 @@ public abstract class Pessoa {
 	@NotBlank(message = "CPF não pode estar em branco")
 	protected String cpf;
 	@Past(message = "Data inválida")
-	@Size(max = 8, message = "Tamanho máximo de {max} caracteres")
 	protected LocalDate dataNasc;
 
 	public String getNome() {

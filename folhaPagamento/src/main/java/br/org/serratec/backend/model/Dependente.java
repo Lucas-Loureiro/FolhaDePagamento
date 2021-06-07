@@ -19,9 +19,6 @@ public class Dependente extends Pessoa{
 	@Enumerated(EnumType.STRING)
 	private Parentesco parentesco;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_funcionario")
-	private Funcionario funcionario;
 	
 	public Dependente() {
 		// TODO Auto-generated constructor stub

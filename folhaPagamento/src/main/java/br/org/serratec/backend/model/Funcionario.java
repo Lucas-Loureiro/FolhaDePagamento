@@ -20,6 +20,7 @@ public class Funcionario extends Pessoa {
 	private BigDecimal salarioBruto;
 	private BigDecimal descontoInss;
 	private BigDecimal descontoIR;
+	private BigDecimal salarioLiquido;
 	@OneToMany
 	@JoinColumn(name = "id_dependente")
 	private List<Dependente> dependentes;
@@ -28,15 +29,19 @@ public class Funcionario extends Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Funcionario(Long id, BigDecimal salarioBruto, BigDecimal descontoInss, BigDecimal descontoIR,
-			List<Dependente> dependentes) {
+			BigDecimal salarioLiquido, List<Dependente> dependentes) {
 		super();
 		this.id = id;
 		this.salarioBruto = salarioBruto;
 		this.descontoInss = descontoInss;
 		this.descontoIR = descontoIR;
+		this.salarioLiquido = salarioLiquido;
 		this.dependentes = dependentes;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -77,6 +82,18 @@ public class Funcionario extends Pessoa {
 	public void setDependentes(List<Dependente> dependentes) {
 		this.dependentes = dependentes;
 	}
+	
+	
+
+	public BigDecimal getSalarioLiquido() {
+		return salarioLiquido;
+	}
+
+
+	public void setSalarioLiquido(BigDecimal salarioLiquido) {
+		this.salarioLiquido = salarioLiquido;
+	}
+
 
 	@Override
 	public int hashCode() {
