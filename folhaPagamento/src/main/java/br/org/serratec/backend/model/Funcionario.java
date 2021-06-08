@@ -29,9 +29,8 @@ public class Funcionario extends Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Funcionario(Long id, Double salarioBruto, Double descontoInss, Double descontoIR,
-			Double salarioLiquido, List<Dependente> dependentes) {
+	public Funcionario(Long id, Double salarioBruto, Double descontoInss, Double descontoIR, Double salarioLiquido,
+			List<Dependente> dependentes) {
 		super();
 		this.id = id;
 		this.salarioBruto = salarioBruto;
@@ -40,8 +39,6 @@ public class Funcionario extends Pessoa {
 		this.salarioLiquido = salarioLiquido;
 		this.dependentes = dependentes;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -82,18 +79,15 @@ public class Funcionario extends Pessoa {
 	public void setDependentes(List<Dependente> dependentes) {
 		this.dependentes = dependentes;
 	}
-	
-	
 
 	public Double getSalarioLiquido() {
 		return salarioLiquido;
 	}
 
-
 	public void setSalarioLiquido(Double salarioLiquido) {
 		this.salarioLiquido = salarioLiquido;
-	}
 
+	}
 
 	@Override
 	public int hashCode() {
@@ -119,5 +113,5 @@ public class Funcionario extends Pessoa {
 			return false;
 		return true;
 	}
-	
+
 }

@@ -2,6 +2,8 @@ package br.org.serratec.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
+import br.org.serratec.backend.exception.EnumValidationException;
+
 
 
 public enum Parentesco {
@@ -10,7 +12,7 @@ public enum Parentesco {
 	OUTROS;
 	
 	
-	/*@JsonCreator
+	@JsonCreator
 	public static Parentesco verificar(String valor) throws EnumValidationException{
 		for (Parentesco parentesco : values()) {
 			if (valor.equals(parentesco.name())) {
@@ -18,5 +20,5 @@ public enum Parentesco {
 			}
 		}
 		throw new EnumValidationException("Categoria Inválida !!");
-	}*/
+	}
 }

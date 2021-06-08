@@ -7,19 +7,16 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Dependente extends Pessoa{
+public class Dependente extends Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_dependente")
 	private Long id;
 	@Enumerated(EnumType.STRING)
 	private Parentesco parentesco;
-	
-	
+
 	public Dependente() {
 		// TODO Auto-generated constructor stub
 	}
@@ -73,9 +70,5 @@ public class Dependente extends Pessoa{
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }
