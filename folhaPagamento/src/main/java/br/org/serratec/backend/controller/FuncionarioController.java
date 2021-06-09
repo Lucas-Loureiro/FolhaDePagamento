@@ -69,7 +69,7 @@ public class FuncionarioController {
 		return ResponseEntity.ok(funcionarios);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("{id}")
 	@ApiOperation(value = " Buscar um Funcionario", notes = "Busca um Funcionario")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Funcionario buscado com sucesso"),
 			@ApiResponse(code = 401, message = "Erro autenticação"), @ApiResponse(code = 403, message = "Proibido"),
@@ -85,7 +85,7 @@ public class FuncionarioController {
 		return ResponseEntity.notFound().build();
 	}
 
-	@PutMapping("/{id}")
+	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiOperation(value = "Atualizar um Funcionario", notes = "Atualizo Funcionario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Funcionario atualizado com sucesso"),
@@ -93,16 +93,17 @@ public class FuncionarioController {
 			@ApiResponse(code = 404, message = "Recurso indisponivel"),
 			@ApiResponse(code = 500, message = "Erro interno no Servidor"),
 			@ApiResponse(code = 505, message = "Ocorreu uma exceção") })
-	public ResponseEntity<Funcionario> atualizar(@PathVariable Long id, @Valid @RequestBody Funcionario funcionario) {
-		if (!funcionarioRepository.existsById(id)) {
+	public ResponseEntity<Object> atualizar(@PathVariable Long id, @Valid @RequestBody Funcionario funcionario) {
+		if(!funcionarioRepository.existsById(id)) {
 			return ResponseEntity.notFound().build();
 		}
-		funcionario.setId(id);
-		funcionario = funcionarioRepository.save(funcionario);
-		return ResponseEntity.ok(funcionario);
+		
+		return ResponseEntity.ok(funcionarioService.atualizar(id, funcionario));
 	}
+		
+	
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiOperation(value = "Apagar um Funcionario", notes = "Apagado Funcionario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Funcionario apagado com sucesso"),
@@ -110,7 +111,7 @@ public class FuncionarioController {
 			@ApiResponse(code = 404, message = "Recurso indisponivel"),
 			@ApiResponse(code = 500, message = "Erro interno no Servidor"),
 			@ApiResponse(code = 505, message = "Ocorreu uma exceção") })
-	public ResponseEntity<Void> remover(@PathVariable Long id) {
+	public ResponseEntity<Funcionario> remover(@PathVariable Long id) {
 		if (!funcionarioRepository.existsById(id)) {
 			return ResponseEntity.notFound().build();
 		}

@@ -1,5 +1,6 @@
 package br.org.serratec.backend.model;
 
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,8 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class Funcionario extends Pessoa {
@@ -22,8 +24,8 @@ public class Funcionario extends Pessoa {
 	private Double descontoIR;
 	private Double salarioLiquido;
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_dependente")
-	private List<Dependente> dependentes;
+	@Column(name = "id_dependente")
+	private List<Dependente> dependentes ;
 
 	public Funcionario() {
 		// TODO Auto-generated constructor stub

@@ -111,5 +111,16 @@ public class FuncionarioService implements Abatimento {
 		return f1;
 
 	}
+	
+	public Funcionario atualizar(Long id, Funcionario funcionario)  {
+
+		calculoInss(funcionario);
+		calculoIR(funcionario);
+		funcionario.setSalarioLiquido(calculoSL(funcionario));
+		funcionario.setId(id);
+		funcionario = funcionarioRepository.save(funcionario);
+		return funcionario;
+
+	}
 
 }
